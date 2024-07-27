@@ -1,0 +1,33 @@
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/cofidi_database</property>
+        <property name="hibernate.connection.username">cofidi_client</property>
+        <property name="hibernate.connection.password">cofidi123</property>
+
+        <!-- Connection pool settings -->
+        <property name="hibernate.hikari.minimumIdle">5</property>
+        <property name="hibernate.hikari.maximumPoolSize">20</property>
+        <property name="hibernate.hikari.idleTimeout">300000</property>
+        <property name="hibernate.hikari.maxLifetime">1800000</property>
+        <property name="hibernate.hikari.connectionTimeout">30000</property>
+
+        <!-- Specify dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <!-- property name="hibernate.hbm2ddl.auto">update</property -->
+
+        <!-- Names the annotated entity class -->
+        <!-- Replace 'com.yourpackage.YourEntity' with your actual entity classes -->
+        <!-- mapping class="com.yourpackage.YourEntity"/ -->
+        
+        <!-- Entities -->
+        <mapping class="com.alexandevcwa.model.Client"/>
+    </session-factory>
+</hibernate-configuration>
